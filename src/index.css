@@ -17,3 +17,10 @@
 .avenger {
   font-family: "AVENGER";
 }
+
+.inter {
+  font-family: "Inter";
+  font-optical-sizing: auto;
+
+  font-style: normal;
+}

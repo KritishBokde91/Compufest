@@ -1,6 +1,6 @@
 function EventCard ({ event }) {
   return (
-    <div className={`bg-gray-800 bg-opacity-40 border ${event.theme.borderColor} rounded-lg p-6 flex flex-col justify-between text-gray-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`}>
+    <div className={`bg-gray-800 bg-opacity-40 border ${event.theme.borderColor} rounded-lg p-6 flex flex-col justify-between text-gray-300 inset-shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`}>
       <div>
         {/* Card Header */}
         <div className="flex justify-between items-start mb-4">

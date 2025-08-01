@@ -1,8 +1,9 @@
 import React from 'react'
 import EventCard from './EventCard';
+import EventTimeLine from './EventTimeLine';
+// import EventTimeline from './EventTimeLine';
 
 function Event() {
-  // Marvel-themed colors and icons
   const eventsData = [
     {
       id: 1,
@@ -14,13 +15,12 @@ function Event() {
       agents: 'Team of 3-5',
       reward: '₹20,000',
       theme: {
-        color: '#e23636', // matches background
+        color: '#e23636',
         gradientFrom: 'from-[#e23636]',
         gradientTo: 'to-[#b71c1c]',
         borderColor: 'border-[#e23636]',
       },
       icon: (
-        // Ultron head icon (Marvel style)
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#e23636]" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="10" stroke="#e23636" strokeWidth="2" fill="#222" />
           <ellipse cx="9" cy="10" rx="1" ry="2" fill="#e23636" />
@@ -45,7 +45,6 @@ function Event() {
         borderColor: 'border-[#ffe066]',
       },
       icon: (
-        // Vision stone icon
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#ffe066]" viewBox="0 0 24 24" fill="none">
           <ellipse cx="12" cy="12" rx="7" ry="10" fill="#ffe066" stroke="#e23636" strokeWidth="2" />
           <circle cx="12" cy="12" r="3" fill="#e23636" />
@@ -68,7 +67,6 @@ function Event() {
         borderColor: 'border-[#8e44ad]',
       },
       icon: (
-        // Doctor Strange portal icon
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#8e44ad]" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="9" stroke="#8e44ad" strokeWidth="2" fill="none" />
           <path d="M12 3v18M3 12h18" stroke="#e23636" strokeWidth="1.5" />
@@ -91,7 +89,6 @@ function Event() {
         borderColor: 'border-[#222]',
       },
       icon: (
-        // Captain America shield icon
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#e23636]" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="10" stroke="#e23636" strokeWidth="2" fill="#fff" />
           <circle cx="12" cy="12" r="6" stroke="#222" strokeWidth="2" fill="#e23636" />
@@ -115,7 +112,6 @@ function Event() {
         borderColor: 'border-[#e23636]',
       },
       icon: (
-        // Black Widow hourglass icon
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#e23636]" viewBox="0 0 24 24" fill="none">
           <rect x="8" y="4" width="8" height="16" rx="4" stroke="#e23636" strokeWidth="2" fill="#222" />
           <polygon points="12,8 16,12 12,16 8,12" fill="#e23636" />
@@ -138,7 +134,6 @@ function Event() {
         borderColor: 'border-[#e23636]',
       },
       icon: (
-        // Iron Man mask icon
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#e23636]" viewBox="0 0 24 24" fill="none">
           <ellipse cx="12" cy="12" rx="7" ry="10" fill="#ffe066" stroke="#e23636" strokeWidth="2" />
           <rect x="9" y="8" width="2" height="2" fill="#222" />
@@ -163,7 +158,6 @@ function Event() {
         borderColor: 'border-[#e23636]',
       },
       icon: (
-        // Spider-Man web icon
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#e23636]" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="9" stroke="#e23636" strokeWidth="2" fill="none" />
           <path d="M12 3v18M3 12h18M6 6l12 12M6 18l12-12" stroke="#e23636" strokeWidth="1" />
@@ -186,7 +180,6 @@ function Event() {
         borderColor: 'border-[#e23636]',
       },
       icon: (
-        // Stark Tower icon
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#e23636]" viewBox="0 0 24 24" fill="none">
           <rect x="10" y="4" width="4" height="16" fill="#e23636" />
           <polygon points="10,4 12,2 14,4" fill="#222" />
@@ -196,7 +189,7 @@ function Event() {
   ];
 
   return (
-    <div className='min-h-screen w-full font-sans p-4 sm:p-8'>
+    <div className='min-h-screen w-full font-sans p-4 sm:p-8 bg-[#e23636] opacity-90'>
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">Events</h1>
 
@@ -205,6 +198,9 @@ function Event() {
             <EventCard key={event.id} event={event} />
           ))}
         </div>
+      </div>
+      <div className='h-full w-full mt-12 p-8 rounded-lg'>
+        <EventTimeLine />
       </div>
     </div>
   )
