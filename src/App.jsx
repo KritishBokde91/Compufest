@@ -15,6 +15,8 @@ import Event from './components/Event';
 import './App.css';
 import CoreCommittee from './components/CoreCommittee';
 import { useLenis } from './lib/utils/lenis';
+import { motion, AnimatePresence } from 'framer-motion';
+
 
 function ScrollCamera({ cameraPositions }) {
   const { camera } = useThree();
@@ -85,7 +87,8 @@ const [loadingDone, setLoadingDone] = useState(false);
         <Canvas shadows dpr={[1, 2]}  camera={{ position: [3, 10, -100], fov: 70 }}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[2, 2, 5]} intensity={1} />
-         <Suspense fallback={<Loader onFinish={() => setLoadingDone(true)} />}>
+         <Suspense fallback={<Loader Loadingdata={loadingDone} setLoadingDone ={setLoadingDone}  />}>
+
   <Model />
   <SetBackground imageUrl="/bg.png" />
   <Environment
@@ -95,9 +98,32 @@ const [loadingDone, setLoadingDone] = useState(false);
           <ScrollCamera cameraPositions={cameraPositions} />
         </Canvas>
       </div>
+    
 
 
       <div className="scroll-content relative overflow-hidden">
+
+
+<AnimatePresence>
+  {loadingDone !== "100" && (
+    <motion.div
+      key="loader"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="h-screen w-full fixed top-0 text-white avenger text-3xl bg-[#EE232C] flex items-center justify-center z-50"
+    >
+
+    
+      <h1 className='mr-5' >{loadingDone}</h1> 
+      <p>Loading..</p>
+    </motion.div>
+  )}
+</AnimatePresence>
+
+
+
         <section style={{ minHeight: '400vh', padding: '0rem', color: 'white' }} >
           <div className='h-[1400vh] w-full py-40 z-10 relative'>
             <div className='h-10  w-full  mb-10 flex items-center justify-center'>

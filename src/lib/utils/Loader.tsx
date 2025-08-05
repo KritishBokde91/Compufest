@@ -1,7 +1,27 @@
 import { Html, useProgress } from '@react-three/drei';
+import { useEffect, useRef } from 'react';
 
-export default function Loader() {
+export default function Loader({ setLoadingDone }) {
   const { progress } = useProgress();
+  const timeoutStarted = useRef(false); // Track if fallback timer has started
+
+  useEffect(() => {
+    console.log(`progress: ${progress.toFixed(0)}`);
+
+    // If we already started fallback timeout, skip
+    if (timeoutStarted.current) return;
+
+    if (progress >= 100) {
+      setLoadingDone("100"); // fully loaded
+    } else if (progress >= 90) {
+      timeoutStarted.current = true;
+      setTimeout(() => {
+        setLoadingDone("100"); // fallback unlock
+      }, 3000);
+    } else {
+      setLoadingDone(progress.toFixed(0));
+    }
+  }, [progress, setLoadingDone]);
 
   return (
     <Html fullscreen>
